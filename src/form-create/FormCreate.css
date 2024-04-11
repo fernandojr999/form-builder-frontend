@@ -1,0 +1,15 @@
+.field-group{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.label-field{
+    margin-right: 5px;
+}
+
+.object-group{
+    display: flex;
+}

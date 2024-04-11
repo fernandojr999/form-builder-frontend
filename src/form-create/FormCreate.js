@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FormCreate.css';
 
 function FormCreate() {
     const [form, setForm] = useState({
@@ -58,18 +59,28 @@ function FormCreate() {
 
   return (
     <div>
-        <label>Novo Formulário</label>
+        <h3>Novo Formulário</h3>
         <hr></hr>
+
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Nome do Formulario:</label>
-            <input id='formName' name='name' value={form.name} onChange={handleChange} ></input>
+            <div className='field-group'>
+                <label htmlFor="name" className='label-field'>Nome do Formulário:</label>
+                <input id='formName' name='name' value={form.name} onChange={handleChange} ></input>
+            </div>
             
-            <h2>Campos do Formulário</h2>
+            <h3>Campos do Formulário</h3>
             {form.fields.map((item, index) => (
                 <div key={index}>
-                    <div>
-                        <label htmlFor={`name${index}`}>Nome do Campo:</label>
-                        <input type="text" id={`name${index}`} name="name" value={item.name} onChange={(e) => handleFieldChange(e, index)} />
+                    <div className='object-group'>
+                        <div className='field-group'>
+                            <label htmlFor={`name${index}`} className='label-field'>Nome do Campo:</label>
+                            <input type="text" id={`name${index}`} className='label-field' name="name" value={item.name} onChange={(e) => handleFieldChange(e, index)} />
+                        </div>
+
+                        <div className='field-group'>
+                            <label htmlFor={`name${index}`} className='label-field'>Obrigatório</label>
+                            <input type="checkbox" id={`name${index}`} className='label-field' name="mandatory" value={item.name} onChange={(e) => handleFieldChange(e, index)} />
+                        </div>
                     </div>
                 </div>
             ))}
